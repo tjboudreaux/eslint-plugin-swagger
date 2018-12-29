@@ -1,4 +1,4 @@
-np{
+{
   "name": "eslint-plugin-swagger",
   "version": "0.1.0",
   "description": "An extensible linter with semantic validations for Swagger specifications.",
@@ -38,16 +38,14 @@ np{
   },
   "devDependencies": {
     "chai": "^4.0.2",
-    "codacy-coverage": "^2.0.2",
     "commitplease": "^2.7.10",
-    "coveralls": "^2.13.1",
     "eslint-plugin-security": "^1.4.0",
     "jsdoc": "^3.4.3",
-    "mocha": "^3.4.2",
+    "mocha": "^5.2.0",
     "npm-install-peers": "^1.1.0",
-    "nyc": "^11.0.3",
-    "semantic-release": "^6.3.6",
-    "semantic-release-cli": "^3.0.3",
+    "nyc": "^13.1.0",
+    "semantic-release": "^15.13.2",
+    "semantic-release-cli": "^4.1.0",
     "standard-version": "^4.4.0"
   },
   "engines": {
