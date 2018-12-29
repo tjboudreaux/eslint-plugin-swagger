@@ -1,4 +1,4 @@
-{
+np{
   "name": "eslint-plugin-swagger",
   "version": "0.1.0",
   "description": "An extensible linter with semantic validations for Swagger specifications.",
@@ -15,23 +15,23 @@
   "author": "Greg Swindle",
   "main": "lib/index.js",
   "scripts": {
-    "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov",
-    "coverage:codacy": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage",
-    "coverage:coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "eslint:html": "./node_modules/.bin/eslint --quiet -c ./.eslintrc.yml -o ./reports/eslint.html -f html --ext .json,.js,.yaml,.yml lib/**",
-    "eslint:stylish": "./node_modules/.bin/eslint -c ./.eslintrc.yml --ext .json,.js,.yaml,.yml lib/** --fix",
-    "git-issue-labels": "./node_modules/.bin/git-labelmaker",
-    "security": "nsp check --output summary",
+    "coverage": "npx nyc report --reporter=text-lcov",
+    "coverage:codacy": "cat ./coverage/lcov.info | npx codacy-coverage",
+    "coverage:coveralls": "cat ./coverage/lcov.info | npx coveralls",
+    "eslint:html": "npx eslint --quiet -c ./.eslintrc.yml -o ./reports/eslint.html -f html --ext .json,.js,.yaml,.yml lib/**",
+    "eslint:stylish": "npx eslint -c ./.eslintrc.yml --ext .json,.js,.yaml,.yml lib/** --fix",
+    "git-issue-labels": "npx git-labelmaker",
+    "security": "npx nsp check --output summary",
     "pretest": "npm run eslint:stylish",
-    "test": "nyc mocha $(find tests -name '*.js')",
-    "posttest": "nsp check --output default",
-    "release": "standard-version",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "test": "npx nyc mocha $(find tests -name '*.js')",
+    "posttest": "npm audit",
+    "release": "npx standard-version",
+    "semantic-release": "npx semantic-release pre && npm publish && npx semantic-release post"
   },
   "dependencies": {
     "eslint": "^4.1.1",
     "eslint-json": "^2.0.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.11",
     "pluralize": "^5.0.0",
     "requireindex": "~1.1.0",
     "yamljs": "^0.3.0"
@@ -45,11 +45,10 @@
     "jsdoc": "^3.4.3",
     "mocha": "^3.4.2",
     "npm-install-peers": "^1.1.0",
-    "nsp": "^2.6.3",
     "nyc": "^11.0.3",
     "semantic-release": "^6.3.6",
     "semantic-release-cli": "^3.0.3",
-    "standard-version": "^4.2.0"
+    "standard-version": "^4.4.0"
   },
   "engines": {
     "node": ">=6.x"
