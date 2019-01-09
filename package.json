@@ -15,16 +15,13 @@
   "author": "Greg Swindle",
   "main": "lib/index.js",
   "scripts": {
-    "coverage": "npx nyc report --reporter=text-lcov",
-    "coverage:codacy": "cat ./coverage/lcov.info | npx codacy-coverage",
-    "coverage:coveralls": "cat ./coverage/lcov.info | npx coveralls",
+    "coverage": "npx nyc report --reporter=text-lcov --reporter=text-summary",
     "eslint:html": "npx eslint --quiet -c ./.eslintrc.yml -o ./reports/eslint.html -f html --ext .json,.js,.yaml,.yml lib/**",
     "eslint:stylish": "npx eslint -c ./.eslintrc.yml --ext .json,.js,.yaml,.yml lib/** --fix",
     "git-issue-labels": "npx git-labelmaker",
     "security": "npx nsp check --output summary",
     "pretest": "npm run eslint:stylish",
     "test": "npx nyc mocha $(find tests -name '*.js')",
-    "posttest": "npm audit",
     "release": "npx standard-version",
     "semantic-release": "npx semantic-release pre && npm publish && npx semantic-release post"
   },
@@ -53,6 +50,7 @@
   },
   "license": "Apache-2.0",
   "nyc": {
+    "all" : true,
     "include": [
       "lib/**/*.js"
     ],
